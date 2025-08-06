@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read the number of elements
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int[] result = new int[n];
+
+        // Read the array elements
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Handle the first element
+        if (n >= 2) {
+            result[0] = arr[0] * arr[1];
+        } else {
+            result[0] = arr[0]; // Only one element
+        }
+
+        // Handle middle elements
+        for (int i = 1; i < n - 1; i++) {
+            result[i] = arr[i - 1] * arr[i + 1];
+        }
+
+        // Handle the last element
+        if (n >= 2) {
+            result[n - 1] = arr[n - 1] * arr[n - 2];
+        }
+
+        // Print the modified array
+        for (int i = 0; i < n; i++) {
+            System.out.print(result[i] + " ");
+        }
+
+        sc.close();
+    }
+}
