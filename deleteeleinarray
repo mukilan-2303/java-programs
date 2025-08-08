@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int delete = sc.nextInt();
+        int deletee = -1;
+        for(int i=0;i<n;i++){
+            if(arr[i]==delete){
+                deletee =i;
+                break;
+            }
+        }
+        if(deletee!=-1){
+           for (int i = deletee; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            } 
+            for (int i = 0; i < n - 1; i++) {
+                System.out.print(arr[i] + " ");
+            }
+        } else {
+            System.out.println("Deletion not possible.");
+        } 
+        sc.close();
+    }
+}
